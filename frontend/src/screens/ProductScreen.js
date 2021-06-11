@@ -81,6 +81,17 @@ export default function ProductScreen(props) {
                         <li>Description:
                             <p>{product.description}</p>
                         </li>
+                        <li>
+                          images:
+                          <ul className="images">
+                            <li>
+                              <button type="button" class="light">
+                                <img src={product.image} alt={product.name} class="small"/>
+                              </button>
+                            </li>
+
+                          </ul>
+                        </li>
                     </ul>
                 </div>
                 <div className="col-1">
