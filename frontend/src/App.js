@@ -68,7 +68,7 @@ function App() {
                   <i className="fa fa-bars"></i>
                 </button>
                     <Link className="brand" to="/">
-                        amazona.bh
+                        on.click
                     </Link>
                 </div>
                 <div>
