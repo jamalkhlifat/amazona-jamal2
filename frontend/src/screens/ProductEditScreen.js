@@ -29,11 +29,10 @@ export default function ProductEditScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
-        props.history.push('/productlist');
-      }
-      if (!product || product._id !== productId || successUpdate) {
-        dispatch({ type: PRODUCT_UPDATE_RESET });
-    
+      props.history.push('/productlist');
+    }
+    if (!product || product._id !== productId || successUpdate) {
+      dispatch({ type: PRODUCT_UPDATE_RESET });
       dispatch(detailsProduct(productId));
     } else {
       setName(product.name);
@@ -44,31 +43,28 @@ export default function ProductEditScreen(props) {
       setBrand(product.brand);
       setDescription(product.description);
     }
-    }, [product, dispatch, productId, successUpdate, props.history]);
+  }, [product, dispatch, productId, successUpdate, props.history]);
   const submitHandler = (e) => {
     e.preventDefault();
     // TODO: dispatch update product
-
     dispatch(
-        updateProduct({
-          _id: productId,
-          name,
-          price,
-          image,
-          category,
-          brand,
-          countInStock,
-          description,
-        })
-      );
+      updateProduct({
+        _id: productId,
+        name,
+        price,
+        image,
+        category,
+        brand,
+        countInStock,
+        description,
+      })
+    );
   };
-
   const [loadingUpload, setLoadingUpload] = useState(false);
   const [errorUpload, setErrorUpload] = useState('');
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
@@ -88,7 +84,7 @@ export default function ProductEditScreen(props) {
       setLoadingUpload(false);
     }
   };
-  
+
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
